@@ -45,7 +45,7 @@ export function compile(lines: string[]): Executable {
     for (const line of lines) {
         line.trim();
         const command = regexp.exec(line.split(';')[0].trim())
-        if (command != null && command[0] != null) {
+        if (command != null && command[0] != null && command[0].trim().length > 0) {
             command.shift()
             switch (command[0]) {
                 case OPCODE[OPCODE.PRO]:
@@ -72,7 +72,9 @@ export function compile(lines: string[]): Executable {
                         break;
                     }
                 case OPCODE[OPCODE.LBL]:
-                    exe.instructions.push(new operation(OPCODE.NOP))
+                    let op = new operation(OPCODE.LBL)
+                    op.handle = command[1];
+                    exe.instructions.push(op)
                     if (command[1] == null) {
                         throw SyntaxError("label cannot be null");
                     } else if (exe.hasLabel(command[1])) {
@@ -97,6 +99,9 @@ export function compile(lines: string[]): Executable {
                     let _temp = new operation(getOpcode(command[0]), -1)
                     _temp.handle = command[1]
                     exe.instructions.push(_temp)
+                case OPCODE[OPCODE.INC]:
+                case OPCODE[OPCODE.DEC]:
+                    exe.instructions.push(new operation(getOpcode(command[0]), getRegister(command[1])))
                 default:
                     let opcode = getOpcode(command[0])
                     opcode = opcode < 0 ? 0 : opcode;
@@ -106,7 +111,7 @@ export function compile(lines: string[]): Executable {
                     exe.instructions.push(new operation(opcode, r1, r2, r3))
                     break;
             }
-        instructionPointer++
+            instructionPointer++
         }
     }
     return exe;

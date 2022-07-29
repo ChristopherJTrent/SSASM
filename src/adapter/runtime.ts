@@ -63,6 +63,12 @@ export class runtime {
             case OPCODE.MOD:
                 this.registers[instruction.Reg3] = this.registers[instruction.Reg1] % this.registers[instruction.Reg2];
                 break;
+            case OPCODE.INC:
+                this.registers[instruction.Reg1]++
+                break;
+            case OPCODE.DEC:
+                this.registers[instruction.Reg1]--
+                break;
             case OPCODE.MOV:
                 this.registers[instruction.Reg3] = this.registers[instruction.Reg1]
                 break;
@@ -110,7 +116,7 @@ export class runtime {
 
     execute() {
         this.bootstrap()
-        while(!this.rFlag[FLAGS.terminate]) {
+        while (!this.rFlag[FLAGS.terminate]) {
             this.clockCycle()
         }
     }
@@ -129,7 +135,7 @@ export class runtime {
         this.registers[REGISTER.iPtr] = pointer
     }
 
-    exec(label: string | undefined):void {
+    exec(label: string | undefined): void {
         if (label == null) throw SyntaxError("Cannot execute without a procedure handle")
         const pointer = this.binary.procedures.get(label)
         if (pointer == null) throw SyntaxError(`Cannot execute procedure ${label}: not found.`)

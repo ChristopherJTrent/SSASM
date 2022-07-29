@@ -6,6 +6,8 @@ export enum OPCODE {
     MUL, //Reg1 * Reg2 -> Reg3
     DIV, //Reg1 / Reg2 -> Reg3
     MOD, //Reg1 % Reg2 -> Reg3
+    INC,
+    DEC,
     MOV, //Reg1 -> Reg3 (omit reg2)
     JMP, //label instruction number -> iPtr
     JEZ, //RJX == 0 ? label instruction -> iPtr : NOP
@@ -125,6 +127,10 @@ export class operation extends Object {
                 break;
             case OPCODE.LBL:
                 output = `${OPCODE[this.op]} -> ${this.handle}`
+                break;
+            case OPCODE.NOP:
+                output = "NOP"
+                break;
             default: break;
         }
         return output

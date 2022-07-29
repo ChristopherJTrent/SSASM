@@ -38,6 +38,8 @@ regardless of any formatting that may occur in the table below, an opcode and AL
 | MUL    | a * b, result into output                                                       | MUL a:REGISTER b:REGISTER output:REGISTER     |
 | DIV    | a / b, result into output                                                       | DIV a:REGISTER b:REGISTER output:REGISTER     |
 | MOD    | a % b, result into output                                                       | MOD a:REGISTER b:REGISTER output:REGISTER     |
+| INC    | a = a + 1                                                                       | INC a:REGISTER                                |
+| DEC    | a = a - 1                                                                       | DEC a:REGISTER                                |
 | MOV    | move value at a into output                                                     | MOV a:REGISTER output:REGISTER                |
 | JMP    | jump unconditionally to label                                                   | JMP label:LABEL                               |
 | JEZ    | jump to label if RJX == 0                                                       | JEZ label:LABEL                               |
