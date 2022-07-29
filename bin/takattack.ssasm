@@ -1,0 +1,9 @@
+PRO .baseattacks
+LDI 7 RJX; base attack bonus
+LDI 5 RHX; BAB decrease for additional attacks
+
+LBL attackloop
+MOV RJX RGX; save the loop variable for later.
+LDI 3 RJX; number of D6s for base claw attack
+LBL dsixloop
+LDI 6 RDX; d6 constant
