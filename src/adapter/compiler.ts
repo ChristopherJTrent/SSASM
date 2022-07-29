@@ -106,9 +106,8 @@ export function compile(lines: string[]): Executable {
                     exe.instructions.push(new operation(opcode, r1, r2, r3))
                     break;
             }
-
-        }
         instructionPointer++
+        }
     }
     return exe;
 } 
