@@ -1,7 +1,3 @@
-```
-
-```
-
 # Sword Sage ASM
 
 ## PLEASE DEAR GOD DON'T USE THIS IN A PUBLIC FACING PROJECT.
