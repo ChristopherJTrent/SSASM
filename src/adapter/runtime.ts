@@ -75,6 +75,12 @@ export class runtime {
             case OPCODE.JNZ:
                 if (this.registers[REGISTER.RJX] != 0) this.jump(instruction.handle)
                 break;
+            case OPCODE.JGZ:
+                if (this.registers[REGISTER.RJX] > 0) this.jump(instruction.handle)
+                break;
+            case OPCODE.JLZ:
+                if (this.registers[REGISTER.RJX] < 0) this.jump(instruction.handle)
+                break;
             case OPCODE.PRO:
                 if (!this.rFlag[FLAGS.inProc]) throw SyntaxError("All procedures must include a RET opcode.")
                 break;

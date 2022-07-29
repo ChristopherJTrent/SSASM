@@ -42,6 +42,8 @@ regardless of any formatting that may occur in the table below, an opcode and AL
 | JMP    | jump unconditionally to label                                                   | JMP label:LABEL                               |
 | JEZ    | jump to label if RJX == 0                                                       | JEZ label:LABEL                               |
 | JNZ    | jump to label if RJX != 0                                                       | JNZ label:LABEL                               |
+| JGZ    | jump to label if RJX > 0                                                        | JGZ label:LABEL                               |
+| JLZ    | jump to label if RJX < 0                                                        | JLZ label:LABEL                               |
 | PRO    | defines a procedure (compile time only)                                         | PRO label:STRING                              |
 | RET    | returns from a procedure, jumping to the instruction after the last call to EXE | RET                                           |
 | EXE    | calls a procedure, pushing the current instruction pointer onto the call stack. | EXE proc:PROCEDURE                            |
@@ -63,5 +65,6 @@ Any text after a semicolon on a line will be ignored by the compiler, allowing y
 It is convention to start process labels with a . (e.g .main) and jump labels without (e.g loop)
 
 #### As a Library
-see ./src/index.ts for a typescript example. 
+
+see ./src/index.ts for a typescript example.
 we do not currently support vanilla javascript.

@@ -10,6 +10,8 @@ export enum OPCODE {
     JMP, //label instruction number -> iPtr
     JEZ, //RJX == 0 ? label instruction -> iPtr : NOP
     JNZ, //RJX != 0 ? label instruction -> iPtr : NOP
+    JGZ, //RJX > 0 ? label instruction -> iPtr : NOP
+    JLZ, //RJX < 0 ? label instruction -> iPtr : NOP
     PRO, //Defines a procedure, <Reg1:string, iPtr> -> procedure map. EVERY PROGRAM MUST HAVE A PROCEDURE .main
     RET, //rPtr -> iPtr 
     EXE, //iPtr -> rPtr, lookup Reg1 in procedure map -> iPtr
@@ -91,6 +93,8 @@ export class operation extends Object {
             case OPCODE.JMP:
             case OPCODE.JNZ:
             case OPCODE.JEZ:
+            case OPCODE.JGZ:
+            case OPCODE.JLZ:
                 output = `${OPCODE[this.op]} ${this.handle ?? ''}`
                 break;
             case OPCODE.RND:
