@@ -89,9 +89,10 @@ export function compile(lines: string[]): Executable {
                     } else {
                         throw SyntaxError("The first argument to LDI must be a number.")
                     }
+                case OPCODE[OPCODE.JMP]:
                 case OPCODE[OPCODE.JEZ]:
                 case OPCODE[OPCODE.JNZ]:
-                    let _temp = new operation(getOpcode(command[0]), REGISTER.iPtr, getRegister(command[2]))
+                    let _temp = new operation(getOpcode(command[0]), -1)
                     _temp.handle = command[1]
                     exe.instructions.push(_temp)
                 default:
