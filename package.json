@@ -1,0 +1,15 @@
+{
+  "name": "ssasm",
+  "version": "1.0.0",
+  "main": "./bin/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^18.6.1",
+    "eslint": "^8.20.0",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./bin/index.js"
+  }
+}
