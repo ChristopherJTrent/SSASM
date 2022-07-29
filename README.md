@@ -21,7 +21,7 @@ OPCODE [Descriptive_Name:type...]
 As a programmer you have 8 registers available to you for calculation: RAX, RBX, RCX, RDX, REX, RFX, RGX, and RHX.
 There are also two additional special use registers:
 
-* RJX, the jump register; JNZ and JEZ will look in RJX for the value that they're comparing.
+* RJX, the jump register.
 * OUT, which will be printed using platform specific behavior when OUT is called.
 
 ###### NOTE
