@@ -14,6 +14,6 @@ RND RAX RBX RCX
 MOV RCX OUT
 SUB RJX RAX RJX
 OUT
-JNZ loop RDX 
+JNZ loop 
 EXE .somethingelse
 END
