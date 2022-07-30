@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import { getRandomRoll } from "../util";
 import { Executable } from "./compiler"
 import { OPCODE, operation, REGISTER } from "./operation";
