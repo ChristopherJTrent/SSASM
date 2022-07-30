@@ -1,1 +1,4 @@
 node_modules
+yarn_error.log
+bin/*.js.map
+bin/*/*.js.map
