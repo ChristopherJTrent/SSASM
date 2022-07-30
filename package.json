@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node ./bin/index.js"
+    "start": "node ./bin/index.js",
+    "publish": "tsc --outfile ./out/package.js"
   },
   "devDependencies": {
     "@types/node": "^18.6.2",
