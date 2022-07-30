@@ -13,6 +13,8 @@ I originally wrote this interpreter for Sword Sage, my as of yet unreleased, WIP
 
 As a user, you will need to write a file ending in .ssasm containing valid Sword Sage ASM code.
 
+All SSASM files must include a procedure named ".main". define this in your code by writing `PRO .main` followed by your code.
+
 ##### Opcodes
 
 Syntax is defined as follows:
